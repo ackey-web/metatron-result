@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>AI神託の結果</title>
+  <style>
+    body {
+      font-family: "Helvetica", sans-serif;
+      background-color: #f4f4f4;
+      padding: 40px;
+      text-align: center;
+    }
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #444;
+    }
+    #result {
+      font-size: 1.1em;
+      margin-top: 20px;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>あなたへの神託</h1>
+    <div id="result">読み込み中...</div>
+  </div>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const result = params.get("result");
+    document.getElementById("result").textContent = result
+      ? decodeURIComponent(result)
+      : "神託の内容が見つかりませんでした。";
+  </script>
+</body>
+</html>
